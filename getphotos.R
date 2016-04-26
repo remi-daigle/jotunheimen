@@ -19,6 +19,10 @@ sub_bbox_Norway <- splitbbox(api_key, bbox)
 writeLines(sub_bbox_Norway,"sub_bbox_Norway")
 sub_bbox_Norway <- readLines("sub_bbox_Norway")
 photos <- flickr.meta.dl(api_key, sub_bbox_Norway)
+
+#### get user location ####
+photos <- flickr.people.dl(photos)
+
 write.csv(photos,'photos.csv')
 
 #### exploratory plot ####
